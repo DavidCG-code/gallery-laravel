@@ -1,0 +1,11 @@
+.foot{
+  padding: 1rem 2rem;
+  background-color: rgb(99, 99, 99);
+
+  display: flex;
+  justify-content: flex-end;
+  &__author{
+    color: #f5f5f5;
+  }
+}
+
