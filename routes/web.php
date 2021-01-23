@@ -26,7 +26,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('sign');
 Route::get('/login', [LoginController::class, 'loginView'])->name('loginView');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::delete('/delete/{id}', [GalleryController::class, 'destroy'])->name('pepe');
 

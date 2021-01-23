@@ -2,10 +2,39 @@
   display: none;
 }
 
-.bg-danger{
-  background-color: red;
-}
+.profile{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  &__options{
+    padding: 1rem;
+    cursor: pointer;
+    img{
+      width: 20px;
+    }
+  }
 
-#test{
-  cursor: pointer;
+  &__list{
+    list-style: none;
+    box-shadow: 3px 3px 6px #212121;
+   
+    &__items{
+      padding: 1rem;
+      border-bottom: 2px solid black;
+      cursor: pointer;
+      text-align: center;
+      &--color{
+        background-color: #e4e4e4;
+  
+      }
+  
+      &--danger{
+        background-color: red;
+      }
+    }
+
+  }
+
+
 }
