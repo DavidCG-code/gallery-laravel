@@ -1,16 +1,21 @@
-<div class="container-forms">
-  <div class="title-forms">
-    <h3>Add Image</h3>
-  </div>
-  <form action="/create" method="POST"  enctype="multipart/form-data" class="forms">
-    <?php echo e(csrf_field()); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dynamic Gallery Laravel</title>
+  <link rel="stylesheet" href="<?php echo e(mix('css/app.css')); ?>">
+</head>
+<body>
 
-    <div class="forms__box">
-      <label for="">Choice Image:</label>
-      <input type="file" name="image">
-    </div>
-    <div class="forms__btn">
-      <input type="submit" class="button" name="add" value="UpLoad">
-    </div>
-  </form>
-</div><?php /**PATH /home/david/Escritorio/gallery-laravel/resources/views/templates/forms/form.blade.php ENDPATH**/ ?>
+    <form action="<?php echo e(route('edit',Auth::user()->id)); ?>" method="POST"  enctype="multipart/form-data" class="forms">
+      <?php echo e(csrf_field()); ?>
+
+      <?php echo $__env->yieldContent('form-content'); ?>
+    </form>
+
+
+<script src=<?php echo e(mix('js/app.js')); ?>></script>
+</body>
+</html><?php /**PATH /home/david/Escritorio/gallery-laravel/resources/views/templates/forms/form.blade.php ENDPATH**/ ?>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Gallery;
@@ -39,20 +40,24 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasFile('image')){
+        
+        
+            if($request->hasFile('image')){
 
-            $filename = $request->image->getClientOriginalName();
-
-            $images = new Gallery;
-
-            $images->image = $filename;
-
-            $images->save();
-
-
-            $path = $request->file('image')->storeAs('public/images', $filename);
-
-        }
+                $filename = $request->image->getClientOriginalName();
+    
+                $images = new Gallery;
+    
+                $images->image = $filename;
+                $images->user_id = Auth::user()->id;
+    
+                $images->save();
+    
+    
+                $path = $request->file('image')->storeAs('public/images', $filename);
+    
+            }
+        
         return \redirect('/');
     }
 
@@ -99,7 +104,8 @@ class GalleryController extends Controller
     public function destroy($id)
     {
       $image = Gallery::find($id);
-      $image->delete();
-      return redirect('/');
+      dd($image);
+      //$image->delete();
+      //return redirect('/');
     }
 }

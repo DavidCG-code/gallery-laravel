@@ -19332,6 +19332,13 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var test = document.getElementById('test');
+
+test.onclick = function () {
+  var testing = document.getElementById('testing');
+  testing.classList.toggle('none');
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -19384,8 +19391,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/david/dynamic-gallery/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/david/dynamic-gallery/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/david/Escritorio/gallery-laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/david/Escritorio/gallery-laravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
