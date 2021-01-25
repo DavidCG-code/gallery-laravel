@@ -6,5 +6,5 @@
   </div>
 </header>
 
-<?php echo $__env->make('templates.partials.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php /**PATH /home/david/Escritorio/gallery-laravel/resources/views/templates/partials/header.blade.php ENDPATH**/ ?>

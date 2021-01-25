@@ -1,5 +1,5 @@
 .container{
-  min-height: calc(100vh - (91px + 54px));
+  margin: 1rem;
   &__options{
     padding: 1.5rem 4rem 1rem;
   
@@ -28,10 +28,10 @@
 
   &__grid{
 
-    margin: 1rem auto;
+    padding: 1rem;
     width: 100%;
     max-width: 960px;
-    column-count: 4;
+    column-count: 2;
 
 
     article{

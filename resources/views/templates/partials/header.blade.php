@@ -6,4 +6,4 @@
   </div>
 </header>
 
-@include('templates.partials.menu')
+

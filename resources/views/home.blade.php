@@ -2,7 +2,7 @@
 
 
 @section('content')
-  
+    @include('templates.partials.menu')
 
     <div class="container__grid">
         @foreach ($gallery as $item)
@@ -16,5 +16,7 @@
             </article>
         @endforeach
     </div>
+
+    
 
 @endsection

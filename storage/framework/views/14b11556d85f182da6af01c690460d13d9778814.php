@@ -9,12 +9,12 @@
 </head>
 <body>
   <?php echo $__env->make('templates.partials.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+  
     <main class="container">
       <?php echo $__env->yieldContent('content'); ?>
     </main>
     
-  <?php echo $__env->make('templates.partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+  
 
 <script src=<?php echo e(mix('js/app.js')); ?>></script>
 </body>

@@ -9,12 +9,12 @@
 </head>
 <body>
   @include('templates.partials.header')
-
+  
     <main class="container">
       @yield('content')
     </main>
     
-  @include('templates.partials.footer')
+  {{-- @include('templates.partials.footer')--}}
 
 <script src={{ mix('js/app.js')}}></script>
 </body>

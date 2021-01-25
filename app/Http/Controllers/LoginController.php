@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -15,9 +18,35 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function registerView(){
+        return \view('register');
+    }
+
     public function loginView()
     {
         return \view('login');
+    }
+
+    public function register(Request $request){
+        $user = new User;
+        
+        $user->name = '';
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+       
+        
+        $user->save();
+
+        $credentials = $request->only('email','password');
+
+        if (Auth::attempt($credentials)) {
+
+            $request->session()->regenerate();
+
+        }
+
+        return redirect()->intended('/');
+        
     }
 
     public function authenticate(Request $request)

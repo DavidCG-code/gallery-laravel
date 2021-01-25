@@ -2,29 +2,26 @@
 
 @section('content')
 
-<form action="/register" method="POST"  enctype="multipart/form-data" class="forms">
-  {{ csrf_field() }}
-  <div class="forms__box">
-    <label for="">Nombre Usuario:</label>
-    <input type="text" name="user" required>
+  <div class="form-title">
+    <h1>Gallery Laravel</h1>
   </div>
-  <div class="forms__box">
-      <label for="">Password:</label>
-      <input type="password" name="password" required>
-  </div>
-  <div class="forms__box">
-      <label for="">Email:</label>
-      <input type="email" name="email" required>
-  </div>
-  <div class="forms__btn">
-    <input type="submit" class="button" name="add" value="register">
-  </div>
-</form>
 
-@if (Request::get("success"))
-
-<h1>Registrado!</h1>
-  
-@endif
+  <div class="container-forms">
+    <form action="/register" method="POST"  enctype="multipart/form-data" class="forms">
+    @csrf
+      <div class="forms__box">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required placeholder="email@email.com">
+      </div>
+      <div class="forms__box">
+          <label for="password">Password:</label>
+          <input type="password" name="password" required placeholder="Password">
+      </div>
     
+      <div class="forms__btn">
+        <input type="submit" class="button button--register" name="register" value="Register">
+      </div>
+    </form>
+  </div>
+      
 @endsection

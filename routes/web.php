@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +21,8 @@ Route::get('/', [GalleryController::class, 'index'])->name('home');
 
 
 
-Route::get('/register', [RegisterController::class, 'registerView'])->name('register');
-Route::post('/register', [RegisterController::class, 'register'])->name('sign');
+Route::get('/register', [LoginController::class, 'registerView'])->name('registerView');
+Route::post('/register', [LoginController::class, 'register'])->name('register');
 
 Route::get('/login', [LoginController::class, 'loginView'])->name('loginView');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
