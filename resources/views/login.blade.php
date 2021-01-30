@@ -7,7 +7,7 @@
 </div>
 
 <div class="container-forms">
-  <form action="/login" method="POST"  enctype="multipart/form-data" class="forms">
+  <form action="{{ route('logIn') }}" method="POST"  enctype="multipart/form-data" class="forms">
    @csrf
     <div class="forms__box">
       <label for="email">Email:</label>
@@ -21,9 +21,15 @@
     <div class="forms__btn">
       <input type="submit" class="button button--login" name="login" value="Login">
 
-      <a href="{{ route('register') }}">¿No te has registrado?</a>
+      <a href="{{ route('registerView') }}">Not Register? Do it</a>
     </div>
   </form>
+
+  @error('errors')
+      <div class="error">
+        <p>{{$message}}</p>
+      </div>
+  @enderror
 </div>
 
 @endsection

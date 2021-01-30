@@ -7,26 +7,38 @@
     </li>
     <span>|</span>
 
-    <li class="menu__icons">
-      <a href="">
+    <li  class="menu__icons">
+      <a href="#" id="search" >
         <img src="{{asset('./images/search.svg')}}" alt="Search - Buscar">
       </a>
-    </li>
+      
+    </li> 
+
     <span>|</span>
 
     <li class="menu__icons">
-      <a href="{{ Auth::user() ? route('upImage') : route('login') }}">
+      <a href="{{ Auth::user() ? route('upImage') : route('loginView') }}">
         <img src="{{asset('./images/plus.svg')}}" alt="Add - Añadir">
       </a>
     </li>
     <span>|</span>
 
     <li class="menu__icons">
-      <a href="{{ Auth::user() ? route('profile') : route('login') }}">
-        @if (Auth::user())
-          <span>{{ Auth::user()->name }}</span>
+      <a href="{{ Auth::user() ? route('profile', Auth::user()->id) : route('loginView') }}">
+        @if ( Auth::user() )
+
+          @if (Auth::user()->avatar === null)
+            <div class="menu__icons__avatar">
+              <p>{{\substr(Auth::user()->name, 0,1)}}</p>
+            </div>
+          @else
+            <figure class="menu__icons__avatar">
+              <img src="{{asset('./storage/images/'. Auth::user()->avatar)}}" alt="Avatar Image">
+            </figure>
+          @endif
+
         @else
-          <a href="{{ route('login') }}"><img src="{{asset('./images/user.svg')}}" alt="Add - Añadir"></a>
+          <a href="{{ route('loginView') }}"><img src="{{asset('./images/user.svg')}}" alt="Add - Añadir"></a>
         @endif
         
       </a>

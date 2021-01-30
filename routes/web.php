@@ -21,11 +21,11 @@ Route::get('/', [GalleryController::class, 'index'])->name('home');
 
 
 
-Route::get('/register', [LoginController::class, 'registerView'])->name('registerView');
-Route::post('/register', [LoginController::class, 'register'])->name('register');
+Route::get('/register', [RegisterController::class, 'registerView'])->name('registerView');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/login', [LoginController::class, 'loginView'])->name('loginView');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('logIn');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -34,12 +34,14 @@ Route::delete('/delete/{id}', [GalleryController::class, 'destroy'])->name('pepe
 
 Route::middleware(['auth'])->group(function () {
   //
-  Route::view('/profile', 'profile')->name('profile');
+  Route::get('/profile/{id}', [UserController::class, 'edit'])->name('profile');
+  Route::put('/profile/{id}', [UserController::class, 'update'])->name('update');
+
   Route::get('/create', [GalleryController::class, 'create'])->name('upImage');
   Route::post('/create', [GalleryController::class, 'store'])->name('upLoad');
 
-  Route::get('/edit/{id}', [UserController::class, 'edit'])->name('editView');
-  Route::put('/edit/{id}', [UserController::class, 'update'])->name('edit');
+
+ 
 });
 
 

@@ -5,7 +5,7 @@
 </div>
 
 <div class="container-forms">
-  <form action="/login" method="POST"  enctype="multipart/form-data" class="forms">
+  <form action="<?php echo e(route('logIn')); ?>" method="POST"  enctype="multipart/form-data" class="forms">
    <?php echo csrf_field(); ?>
     <div class="forms__box">
       <label for="email">Email:</label>
@@ -19,9 +19,22 @@
     <div class="forms__btn">
       <input type="submit" class="button button--login" name="login" value="Login">
 
-      <a href="<?php echo e(route('register')); ?>">¿No te has registrado?</a>
+      <a href="<?php echo e(route('registerView')); ?>">Not Register? Do it</a>
     </div>
   </form>
+
+  <?php $__errorArgs = ['errors'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+      <div class="error">
+        <p><?php echo e($message); ?></p>
+      </div>
+  <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
 </div>
 
 <?php $__env->stopSection(); ?>

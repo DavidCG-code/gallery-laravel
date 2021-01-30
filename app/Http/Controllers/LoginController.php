@@ -18,51 +18,35 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function registerView(){
-        return \view('register');
-    }
+   
 
     public function loginView()
     {
         return \view('login');
     }
 
-    public function register(Request $request){
-        $user = new User;
-        
-        $user->name = '';
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-       
-        
-        $user->save();
 
-        $credentials = $request->only('email','password');
-
-        if (Auth::attempt($credentials)) {
-
-            $request->session()->regenerate();
-
-        }
-
-        return redirect()->intended('/');
-        
-    }
 
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
+        
 
-        if (Auth::attempt($credentials)) {
-
+        if(Auth::attempt($credentials)) {
+            
             $request->session()->regenerate();
-
-            return redirect()->intended('/');
+            return \redirect()->route('home');
+        
+        }else{
+            return \back()->withErrors([
+                "errors" => "No has logueado, revisa bien tu correo o contraseña"
+            ]);
         }
 
-        /*return back()->withErrors([
-            'email' => 'No aparece el email, revise bien su escritura'
-        ]);*/
+        
+        
+
+       
     }
 
 

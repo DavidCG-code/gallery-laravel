@@ -3,14 +3,18 @@
 
 @section('content')
     @include('templates.partials.menu')
-
+    <div id="searchInput" class="container__search none">
+        <form action="">
+            <input type="search" class="container__search__input" name="search" placeholder="Search...">
+        </form>
+    </div>
     <div class="container__grid">
         @foreach ($gallery as $item)
 
             <article>
                 <a class="pepe" href="{{route('pepe', $item->id) }}">
                     <figure>
-                        <img src="{{ asset('/storage/images/'.$item->image)}}" width="300"   height="auto" alt="images-Stock">
+                        <img src="{{ asset('/storage/images/'.$item->image)}}"  alt="images-Stock">
                     </figure>
                 </a>
             </article>

@@ -7,21 +7,31 @@
   </div>
 
   <div class="container-forms">
-    <form action="/register" method="POST"  enctype="multipart/form-data" class="forms">
-    @csrf
+    <form action="{{ route('register') }}" method="POST"  enctype="multipart/form-data" class="forms">
+      @csrf
+
       <div class="forms__box">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required placeholder="email@email.com">
+
+        <label for="avatar" class="button__avatar">Añadir</label>
+        <input type="file" id="avatar" name="avatar" class="none">
       </div>
+
+      <div class="forms__box">
+        <label for="name">Username:</label>
+        <input type="text" name="name" placeholder="Username">
+      </div>
+
       <div class="forms__box">
           <label for="password">Password:</label>
-          <input type="password" name="password" required placeholder="Password">
+          <input type="password" name="password" placeholder="password">
       </div>
-    
+      <div class="forms__box">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="email@email.com">
+      </div>
       <div class="forms__btn">
-        <input type="submit" class="button button--register" name="register" value="Register">
+        <input type="submit" class="button button--update" name="update" value="Guardar">
       </div>
     </form>
-  </div>
       
 @endsection

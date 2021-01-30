@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -38,6 +39,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+     
         
 
     }
@@ -62,7 +64,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        return \view('edit');
+        return \view('profile');
     }
 
     /**
@@ -77,20 +79,40 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
 
         $user->name = $request->name;
+        
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        if($request->hasFile('avatar')){
+
+            $filename = $request->avatar->getClientOriginalName();
+
+            $user->avatar = $filename;
+
+
+            $path = $request->file('avatar')->storeAs('public/images', $filename);
+
+        }
         //
         $user->save();
 
         return \redirect('/');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
+    public function upLoadAvatar(Request $request, User $user)
     {
-        //
+        $user = User::find(Auth::user()->id);
+
+        if($request->hasFile('avatar')){
+
+            $filename = $request->avatar->getClientOriginalName();
+
+            $user->avatar = $filename;
+
+
+            $path = $request->file('avatar')->storeAs('public/images', $filename);
+
+        }
     }
+
 }

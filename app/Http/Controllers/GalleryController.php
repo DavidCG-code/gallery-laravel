@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Gallery;
+use App\Models\User;
 
 class GalleryController extends Controller
 {
@@ -17,6 +18,7 @@ class GalleryController extends Controller
     public function index()
     {
         $gallery = Gallery::all();
+
       
         return view('home', compact('gallery'));
         

@@ -48,38 +48,49 @@ input {
 }
 
 .container {
-  margin: 1rem;
+  padding: 1rem;
 }
 
-.container__options {
-  padding: 1.5rem 4rem 1rem;
-  display: flex;
-  justify-content: flex-end;
+.container__search {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #e6e6e6;
 }
 
-.container__options .btn {
-  width: 8rem;
-  padding: 12px 24px;
-  cursor: pointer;
+.container__search form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container__search__input {
   border: none;
-  border-radius: 10px;
-  background-color: #3dbb3d;
-  box-shadow: 0px 3px 9px rgba(61, 187, 61, 0.548);
-  color: #2b2b2b;
-  font-size: 1rem;
-  font-family: "Open Sans Condensed";
+  border-bottom: 2px solid #2b2b2b;
+  padding: 1rem 0.25rem 0rem;
+  background-color: #e6e6e6;
 }
 
-.container__options .btn:focus {
-  outline: none;
+.container__search--visible {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
 }
 
 .container__grid {
-  padding: 1rem;
+  margin: 0 auto;
+  padding: 0.5rem;
   width: 100%;
   max-width: 960px;
   -moz-column-count: 2;
        column-count: 2;
+}
+
+@media (min-width: 1024px) {
+  .container__grid {
+    -moz-column-count: 4;
+         column-count: 4;
+  }
 }
 
 .container__grid article {
@@ -88,6 +99,19 @@ input {
 
 .container__grid article img {
   width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0px 0px 6px #41414170;
+}
+
+.error {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #d14949;
+  color: #f5f5f5;
+  font-weight: bold;
 }
 
 .form-title {
@@ -102,7 +126,6 @@ input {
 .container-forms .forms {
   display: flex;
   flex-direction: column;
-  height: 400px;
 }
 
 .container-forms .forms__box {
@@ -116,48 +139,73 @@ input {
   margin-bottom: 0.2rem;
 }
 
+.container-forms .forms__box .button__avatar {
+  cursor: pointer;
+  padding: 0.25rem 0.15rem;
+  border: 1px solid black;
+  width: 60px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 1rem auto 0;
+}
+
+.container-forms .forms__box .profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 6px #41414170;
+}
+
+.container-forms .forms__box .profile__avatar img {
+  width: 100%;
+}
+
 .container-forms .forms__btn {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 2rem;
 }
 
 .container-forms .forms__btn .button {
   width: 10rem;
   margin: 0 auto;
-  font-size: 1.2rem;
+  font-size: 16pt;
   cursor: pointer;
-  padding: 0.5rem 0.25rem;
-  border-radius: 6px;
+  margin-bottom: 1.5em;
+  padding: 9px 16px;
+  border-radius: 4px;
   font-weight: bold;
   box-shadow: 3px 3px 6px rgba(34, 75, 136, 0.25);
 }
 
-.container-forms .forms__btn .button--login {
+.container-forms .forms__btn .button--login,
+.container-forms .forms__btn .button--update {
   background-color: #3b71c4;
   color: #f5f5f5;
+  border: none;
 }
 
 .container-forms .forms__btn .button--login:hover,
-.container-forms .forms__btn .button--login:active {
+.container-forms .forms__btn .button--login:active,
+.container-forms .forms__btn .button--update:hover,
+.container-forms .forms__btn .button--update:active {
   background: radial-gradient(circle, #3b71c4, #224b88);
 }
 
 .container-forms .forms__btn .button--register {
-  border: 1px solid #3b71c4;
+  border: 2px solid #224b88 !important;
   color: #3b71c4;
-}
-
-.container-forms .forms__btn .button:first-of-type {
-  margin-bottom: 1.5em;
-  border: none;
 }
 
 .fixed-menu {
   position: fixed;
   bottom: 2%;
   left: 20%;
-  background-color: #f5f5f5;
+  background-color: #e2e2e2;
   border-radius: 20px;
   width: 60%;
   margin: 0 auto;
@@ -171,8 +219,35 @@ input {
   align-items: center;
 }
 
+.fixed-menu .menu__icons {
+  width: 25px;
+  height: 25px;
+}
+
+.fixed-menu .menu__icons a {
+  text-decoration: none;
+  text-align: center;
+}
+
 .fixed-menu .menu__icons img {
-  width: 1.5rem;
+  width: 100%;
+}
+
+.fixed-menu .menu__icons__avatar {
+  background-color: #6b6b6b;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #212121;
+  border-radius: 50%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #e2e2e2;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.fixed-menu .menu__icons__avatar img {
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -241,5 +316,17 @@ input {
 .profile__list__items--txt-danger {
   color: #df4545;
   font-weight: bold;
+}
+
+.profile-avatar {
+  text-align: center;
+}
+
+.profile-avatar figure img {
+  border-radius: 50%;
+}
+
+body {
+  background-color: #f5f5f5;
 }
 

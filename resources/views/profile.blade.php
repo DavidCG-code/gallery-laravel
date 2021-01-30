@@ -1,7 +1,7 @@
 @extends('templates.app')
 
 @section('content')
-
+@include('templates.partials.menu')
 
   
   <div class="profile">
@@ -16,10 +16,6 @@
       <div id="testing" class="none">
       
         <ul class="profile__list radius-lf-t radius-lf-b">  
-      
-          <li class=" profile__list__items profile__list__items--color radius-lf-t">
-            <a href="{{ route('edit', Auth::user()->id) }}">Edit Profile</a>
-          </li>
           <li class=" profile__list__items profile__list__items--color">
             <a href="{{route('logout')}}" class="profile__list__items--txt-danger" >Logout</a>
           </li>
@@ -33,11 +29,42 @@
 
   </div>
 
+  
+  <div class="container-forms">
+    <form action="{{ route('update',Auth::user()->id) }}" method="POST"  enctype="multipart/form-data" class="forms">
+      @csrf
+      @method('PUT')
 
-  <div>
-    <H1>Hola buenos dias</H1>
-  </div>
+      <div class="forms__box">
+        @if (Auth::user()->avatar === null)
+          <figure class="profile__avatar">
+            <p>{{ \substr(Auth::user()->name, 0,1) }}</p>
+          </figure>
+        @else
+          <figure class="profile__avatar">
+            <img src="{{asset('./storage/images/'. Auth::user()->avatar)}}" alt="Avatar Image">
+          </figure>
+        @endif
+        <label for="avatar" class="button__avatar">Editar</label>
+        <input type="file" id="avatar" name="avatar" class="none">
+      </div>
 
+      <div class="forms__box">
+        <label for="name">Username:</label>
+        <input type="text" name="name" value="{{Auth::user()->name}}">
+      </div>
 
-    
+      <div class="forms__box">
+          <label for="password">Password:</label>
+          <input type="password" name="password" value="">
+      </div>
+      <div class="forms__box">
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{Auth::user()->email}}">
+      </div>
+      <div class="forms__btn">
+        <input type="submit" class="button button--update" name="update" value="Guardar">
+      </div>
+    </form>
+
 @endsection

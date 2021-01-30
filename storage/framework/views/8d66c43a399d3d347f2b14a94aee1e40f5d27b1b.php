@@ -7,26 +7,38 @@
     </li>
     <span>|</span>
 
-    <li class="menu__icons">
-      <a href="">
+    <li  class="menu__icons">
+      <a href="#" id="search" >
         <img src="<?php echo e(asset('./images/search.svg')); ?>" alt="Search - Buscar">
       </a>
-    </li>
+      
+    </li> 
+
     <span>|</span>
 
     <li class="menu__icons">
-      <a href="<?php echo e(Auth::user() ? route('upImage') : route('login')); ?>">
+      <a href="<?php echo e(Auth::user() ? route('upImage') : route('loginView')); ?>">
         <img src="<?php echo e(asset('./images/plus.svg')); ?>" alt="Add - Añadir">
       </a>
     </li>
     <span>|</span>
 
     <li class="menu__icons">
-      <a href="<?php echo e(Auth::user() ? route('profile') : route('login')); ?>">
-        <?php if(Auth::user()): ?>
-          <span><?php echo e(Auth::user()->name); ?></span>
+      <a href="<?php echo e(Auth::user() ? route('profile', Auth::user()->id) : route('loginView')); ?>">
+        <?php if( Auth::user() ): ?>
+
+          <?php if(Auth::user()->avatar === null): ?>
+            <div class="menu__icons__avatar">
+              <p><?php echo e(\substr(Auth::user()->name, 0,1)); ?></p>
+            </div>
+          <?php else: ?>
+            <figure class="menu__icons__avatar">
+              <img src="<?php echo e(asset('./storage/images/'. Auth::user()->avatar)); ?>" alt="Avatar Image">
+            </figure>
+          <?php endif; ?>
+
         <?php else: ?>
-          <a href="<?php echo e(route('login')); ?>"><img src="<?php echo e(asset('./images/user.svg')); ?>" alt="Add - Añadir"></a>
+          <a href="<?php echo e(route('loginView')); ?>"><img src="<?php echo e(asset('./images/user.svg')); ?>" alt="Add - Añadir"></a>
         <?php endif; ?>
         
       </a>
