@@ -16,6 +16,8 @@ class CreateGalleryTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('title');
+            $table->string('description');
             $table->foreignId('user_id')
             ->nullable()
             ->constrained('users');

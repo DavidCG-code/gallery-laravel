@@ -8,7 +8,7 @@
     <span>|</span>
 
     <li  class="menu__icons">
-      <a href="#" id="search" >
+      <a href="#" >
         <img src="{{asset('./images/search.svg')}}" alt="Search - Buscar">
       </a>
       
@@ -17,7 +17,7 @@
     <span>|</span>
 
     <li class="menu__icons">
-      <a href="{{ Auth::user() ? route('upImage') : route('loginView') }}">
+      <a href="{{ Auth::user() ? route('preview', Auth::user()->id) : route('loginView') }}">
         <img src="{{asset('./images/plus.svg')}}" alt="Add - Añadir">
       </a>
     </li>

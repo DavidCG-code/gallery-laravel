@@ -93,46 +93,41 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./home */ "./resources/js/home.js");
+__webpack_require__(/*! ./images */ "./resources/js/images.js");
 
 __webpack_require__(/*! ./profile */ "./resources/js/profile.js");
 
-__webpack_require__(/*! ./avatar */ "./resources/js/avatar.js");
+__webpack_require__(/*! ./register */ "./resources/js/register.js");
 
 /***/ }),
 
-/***/ "./resources/js/avatar.js":
+/***/ "./resources/js/images.js":
 /*!********************************!*\
-  !*** ./resources/js/avatar.js ***!
+  !*** ./resources/js/images.js ***!
   \********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var inputAvatar = document.getElementById('avatar').value;
-var boxAvatar = document.getElementById('viewAvatar');
+//Script to Create.blade.php -- Upload Image on Gallery
+document.addEventListener("DOMContentLoaded", function () {
+  var _this = this;
 
-if (inputAvatar.value === null) {
-  boxAvatar.innerHTML = 'Hola';
-} else {
-  boxAvatar.innerHTML = 'Adios';
-}
+  var inputFile = document.querySelector('#imageFile');
+  var image = document.querySelector('#newImage');
+  inputFile.addEventListener("change", function () {
+    var file = inputFile.files[0];
 
-/***/ }),
-
-/***/ "./resources/js/home.js":
-/*!******************************!*\
-  !*** ./resources/js/home.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var search = document.getElementById('search');
-
-search.onclick = function () {
-  var input = document.getElementById('searchInput');
-  input.classList.toggle('none');
-  input.classList.toggle('container__search--visible');
-};
+    if (file) {
+      var reader = new FileReader();
+      reader.addEventListener("load", function () {
+        console.log(_this);
+        image.setAttribute("src", reader.result);
+        image.parentElement.classList.add('forms__box--create');
+      });
+      reader.readAsDataURL(file);
+    }
+  });
+});
 
 /***/ }),
 
@@ -143,13 +138,60 @@ search.onclick = function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var test = document.getElementById('test');
+document.addEventListener("DOMContentLoaded", function () {
+  var _this = this;
 
-test.onclick = function () {
-  var testing = document.getElementById('testing');
-  testing.classList.toggle('none');
-  testing.classList.toggle('visible');
-};
+  var options = document.getElementById('options');
+
+  options.onclick = function () {
+    var optionsMenu = document.getElementById('optionsMenu');
+    optionsMenu.classList.toggle('none');
+    optionsMenu.classList.toggle('visible');
+  };
+
+  var inputAvatar = document.querySelector('#avatar');
+  var imageAvatar = document.querySelector('#preview');
+  inputAvatar.addEventListener("change", function () {
+    var file = inputAvatar.files[0];
+
+    if (file) {
+      var reader = new FileReader();
+      reader.addEventListener("load", function () {
+        console.log(_this);
+        imageAvatar.setAttribute("src", reader.result);
+      });
+      reader.readAsDataURL(file);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/register.js":
+/*!**********************************!*\
+  !*** ./resources/js/register.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener("DOMContentLoaded", function () {
+  var _this = this;
+
+  var inputAvatar = document.querySelector('#register');
+  var imageAvatar = document.querySelector('#registerPreview');
+  inputAvatar.addEventListener("change", function () {
+    var file = inputAvatar.files[0];
+
+    if (file) {
+      var reader = new FileReader();
+      reader.addEventListener("load", function () {
+        console.log(_this);
+        imageAvatar.setAttribute("src", reader.result);
+      });
+      reader.readAsDataURL(file);
+    }
+  });
+});
 
 /***/ }),
 

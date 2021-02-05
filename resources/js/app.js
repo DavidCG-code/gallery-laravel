@@ -1,7 +1,6 @@
 
-
-require('./home');
+require('./images')
 
 require('./profile');
 
-require('./avatar');  
+require('./register')

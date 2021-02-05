@@ -7,18 +7,17 @@
 .visible{
   position: absolute;
   top: 50px;
-  right: -20px;
+  right: 0px;
   z-index: 1;
   width: 145px;
 
 }
-.radius-lf-t{
-  border-top-left-radius: 20px;
+.radius{
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.radius-lf-b{
-  border-bottom-left-radius: 20px;
-}
+
 
 .profile{
   padding: 1rem;
@@ -65,12 +64,3 @@
   }
 }
 
-.profile-avatar{
- text-align: center;
-
-  figure{
-    img{
-      border-radius: 50%;
-    }
-  }
-}

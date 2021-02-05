@@ -51,10 +51,12 @@ class GalleryController extends Controller
                 $images = new Gallery;
     
                 $images->image = $filename;
+                $images->title = $request->title;
+                $images->description = $request->description;
                 $images->user_id = Auth::user()->id;
     
                 $images->save();
-    
+     
     
                 $path = $request->file('image')->storeAs('public/images', $filename);
     
@@ -72,6 +74,17 @@ class GalleryController extends Controller
     public function show($id)
     {
         //
+        $image = Gallery::findOrFail($id);
+
+        $users = $image->user()->get();
+
+        $author = \json_decode($users[0]);
+
+        
+        return view('show',[
+            'image' => $image,
+            'author' => $author
+        ]);
     }
 
     /**

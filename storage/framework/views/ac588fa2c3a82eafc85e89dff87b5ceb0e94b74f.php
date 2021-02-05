@@ -9,7 +9,7 @@
         <?php $__currentLoopData = $gallery; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <article>
-                <a class="pepe" href="<?php echo e(route('pepe', $item->id)); ?>">
+                <a href="<?php echo e(route('show', $item->id)); ?>">
                     <figure>
                         <img src="<?php echo e(asset('/storage/images/'.$item->image)); ?>"  alt="images-Stock">
                     </figure>

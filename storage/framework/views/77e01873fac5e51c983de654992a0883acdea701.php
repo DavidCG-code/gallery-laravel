@@ -9,23 +9,26 @@
       <?php echo csrf_field(); ?>
 
       <div class="forms__box">
+        <figure class="forms__box--avatar">
+          <img src="<?php echo e(asset('./images/avatar.svg')); ?>" id="registerPreview"  alt="pepe">
+        </figure>
 
-        <label for="avatar" class="button__avatar">Añadir</label>
-        <input type="file" id="avatar" name="avatar" class="none">
+        <label for="register" class="forms__box--button__avatar">Añadir</label>
+        <input type="file" id="register" name="avatar" class="none"> 
+      </div>
+
+      <div class="forms__box forms__box--test">
+        <label for="name"  class="forms__box--label">Username</label>
+        <input type="text" class="forms__box--input" name="name" placeholder="Username">
       </div>
 
       <div class="forms__box">
-        <label for="name">Username:</label>
-        <input type="text" name="name" placeholder="Username">
-      </div>
-
-      <div class="forms__box">
-          <label for="password">Password:</label>
-          <input type="password" name="password" placeholder="password">
+          <label for="password"  class="forms__box--label">Password:</label>
+          <input type="password" class="forms__box--input" name="password" placeholder="password">
       </div>
       <div class="forms__box">
-        <label for="email">Email:</label>
-        <input type="email" name="email" placeholder="email@email.com">
+        <label for="email"  class="forms__box--label">Email:</label>
+        <input type="email" class="forms__box--input" name="email" placeholder="email@email.com">
       </div>
       <div class="forms__btn">
         <input type="submit" class="button button--update" name="update" value="Guardar">

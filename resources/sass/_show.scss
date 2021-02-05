@@ -1,0 +1,66 @@
+.container__show{
+
+  &__card, &__author{
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px #41414170;
+  }
+
+  &__card{
+   
+    &--text{
+      background-color: #fff;
+      padding: 1.2rem;
+  
+      h1{
+        margin-bottom: 0.75rem;
+        font-size: 1.6rem;
+      }
+  
+      p{
+        font-size: 0.95rem;
+      }
+    }
+    .show__box{
+      &--image{
+        width: 100%;
+  
+      }
+    }
+
+  }
+
+  &__author{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+
+    &--avatar{
+      margin-right: 1rem;
+
+     figure{
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 50%;
+       img{
+        width: 100%;
+        
+       }
+     }
+    }
+
+    &--name{
+      flex: 1;
+      
+    }
+  }
+
+
+
+  
+
+}

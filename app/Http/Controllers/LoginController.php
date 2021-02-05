@@ -35,13 +35,14 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
             
             $request->session()->regenerate();
-            return \redirect()->route('home');
+
+            return \redirect()->intended('/');
         
-        }else{
+        }
             return \back()->withErrors([
                 "errors" => "No has logueado, revisa bien tu correo o contraseña"
             ]);
-        }
+        
 
         
         

@@ -12,7 +12,7 @@
         @foreach ($gallery as $item)
 
             <article>
-                <a class="pepe" href="{{route('pepe', $item->id) }}">
+                <a href="{{route('show', $item->id) }}">
                     <figure>
                         <img src="{{ asset('/storage/images/'.$item->image)}}"  alt="images-Stock">
                     </figure>

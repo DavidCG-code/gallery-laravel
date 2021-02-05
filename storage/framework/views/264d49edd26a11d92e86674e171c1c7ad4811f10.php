@@ -6,14 +6,15 @@
 
 <div class="container-forms">
   <form action="<?php echo e(route('logIn')); ?>" method="POST"  enctype="multipart/form-data" class="forms">
-   <?php echo csrf_field(); ?>
+    <?php echo csrf_field(); ?>
+
     <div class="forms__box">
-      <label for="email">Email:</label>
-      <input type="email" name="email" required placeholder="email@email.com">
+      <label for="email" class="forms__box--label">Email:</label>
+      <input type="email" class="forms__box--input" name="email" required placeholder="email@email.com">
     </div>
     <div class="forms__box">
-        <label for="password">Password:</label>
-        <input type="password" name="password" required placeholder="Password">
+        <label for="password" class="forms__box--label">Password:</label>
+        <input type="password" class="forms__box--input" name="password" required placeholder="Password">
     </div>
   
     <div class="forms__btn">

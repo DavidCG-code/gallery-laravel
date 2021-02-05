@@ -29,6 +29,8 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('logIn');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/show/{id}', [GalleryController::class, 'show'])->name('show');
+
 Route::delete('/delete/{id}', [GalleryController::class, 'destroy'])->name('pepe');
 
 
@@ -37,8 +39,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/profile/{id}', [UserController::class, 'edit'])->name('profile');
   Route::put('/profile/{id}', [UserController::class, 'update'])->name('update');
 
-  Route::get('/create', [GalleryController::class, 'create'])->name('upImage');
-  Route::post('/create', [GalleryController::class, 'store'])->name('upLoad');
+  Route::get('/create/{id}', [GalleryController::class, 'create'])->name('preview');
+  Route::post('/create/{id}', [GalleryController::class, 'store'])->name('create');
 
 
  
