@@ -230,13 +230,13 @@ input {
 
 .fixed-menu {
   position: fixed;
-  bottom: 2%;
+  bottom: 1%;
   left: 20%;
   background-color: #e2e2e2;
   border-radius: 20px;
   width: 60%;
   margin: 0 auto;
-  padding: 0.65rem;
+  padding: 0.4rem 0.5rem;
 }
 
 .fixed-menu .menu {
@@ -247,8 +247,8 @@ input {
 }
 
 .fixed-menu .menu__icons {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 .fixed-menu .menu__icons a {
@@ -342,6 +342,13 @@ input {
   font-weight: bold;
 }
 
+.v-center {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .container__show__card,
 .container__show__author {
   width: 70%;
@@ -351,14 +358,19 @@ input {
   box-shadow: 0px 0px 6px #41414170;
 }
 
+.container__show__card {
+  display: flex;
+  flex-direction: column;
+}
+
 .container__show__card--text {
   background-color: #fff;
-  padding: 1.2rem;
+  padding: 0.75rem 1.2rem 0;
 }
 
 .container__show__card--text h1 {
   margin-bottom: 0.75rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .container__show__card--text p {
@@ -369,29 +381,31 @@ input {
   width: 100%;
 }
 
-.container__show__author {
+.container__show__card__author {
+  height: 80px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
 }
 
-.container__show__author--avatar {
-  margin-right: 1rem;
+.container__show__card__author--avatar {
+  margin-right: 0.5rem;
+  margin-left: 1rem;
 }
 
-.container__show__author--avatar figure {
+.container__show__card__author--avatar figure {
   width: 40px;
   height: 40px;
   overflow: hidden;
   border-radius: 50%;
 }
 
-.container__show__author--avatar figure img {
+.container__show__card__author--avatar figure img {
   width: 100%;
 }
 
-.container__show__author--name {
+.container__show__card__author--name {
   flex: 1;
 }
 

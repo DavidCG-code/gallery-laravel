@@ -1,3 +1,12 @@
+//helpers
+.v-center{
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
 .container__show{
 
   &__card, &__author{
@@ -9,14 +18,15 @@
   }
 
   &__card{
-   
+   display: flex;
+   flex-direction: column;
     &--text{
       background-color: #fff;
-      padding: 1.2rem;
+      padding: 0.75rem 1.2rem 0;
   
       h1{
         margin-bottom: 0.75rem;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
       }
   
       p{
@@ -24,40 +34,47 @@
       }
     }
     .show__box{
+   
       &--image{
         width: 100%;
+        
   
+      }
+    }
+
+    &__author{
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+  
+      background-color: #fff;
+  
+      &--avatar{
+        margin-right: 0.5rem;
+        margin-left: 1rem;
+  
+       figure{
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 50%;
+         img{
+          width: 100%;
+          
+         }
+       }
+      }
+  
+      &--name{
+        flex: 1;
+        
       }
     }
 
   }
 
-  &__author{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem;
-
-    &--avatar{
-      margin-right: 1rem;
-
-     figure{
-      width: 40px;
-      height: 40px;
-      overflow: hidden;
-      border-radius: 50%;
-       img{
-        width: 100%;
-        
-       }
-     }
-    }
-
-    &--name{
-      flex: 1;
-      
-    }
-  }
+  
 
 
 
