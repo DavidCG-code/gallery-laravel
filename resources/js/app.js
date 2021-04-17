@@ -1,4 +1,4 @@
-
+require('./bootstrap');
 require('./images')
 
 require('./profile');

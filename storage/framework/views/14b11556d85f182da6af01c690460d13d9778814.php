@@ -13,7 +13,7 @@
 <body>
   <?php echo $__env->make('templates.partials.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   
-    <main class="container">
+    <main class="container container-sm">
       <?php echo $__env->yieldContent('content'); ?>
     </main>
     

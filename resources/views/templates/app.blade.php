@@ -13,7 +13,7 @@
 <body>
   @include('templates.partials.header')
   
-    <main class="container">
+    <main class="container container-sm">
       @yield('content')
     </main>
     

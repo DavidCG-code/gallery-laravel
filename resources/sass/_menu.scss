@@ -1,6 +1,6 @@
 .fixed-menu{
   position: fixed;
-  bottom: 1%;
+  bottom: 2rem;
   left: 20%;
 
   background-color: #e2e2e2;
@@ -8,7 +8,7 @@
   border-radius: 20px;
   width: 60%;
   margin: 0 auto;
-  padding: 0.4rem 0.5rem;
+  padding: 0.75rem;
   .menu{
     list-style: none;
     display: flex;
@@ -16,8 +16,8 @@
     align-items: center;
 
     &__icons{
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       a{
         text-decoration: none;
         text-align: center;
@@ -27,8 +27,8 @@
       }
       &__avatar{
         background-color: rgb(107, 107, 107);
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         border: 1px solid #212121;
         border-radius: 50%;
         text-align: center;
